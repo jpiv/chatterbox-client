@@ -82,3 +82,19 @@ form input[type=text] {
 .spinner img {
     padding: 10px;
 }
+
+.content {
+    font-weight: bold;
+}
+
+.timestamp, .room {
+   color: grey;
+}
+
+.user {
+    color: blue;
+}
+.message {
+    margin: 10px;
+    list-style-type: none;
+}
