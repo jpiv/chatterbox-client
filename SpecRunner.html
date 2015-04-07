@@ -4,6 +4,9 @@
   <title>Mocha Spec Runner</title>
   <link rel="stylesheet" href="lib/mocha/mocha.css">
   <script src="lib/jquery.js"></script>
+  <script src="client/env/config.js"></script>
+  <script src="client/bower_components/handlebars/handlebars.min.js"></script>
+  <script src="client/bower_components/timeago/jquery.timeago.js"></script>
   <script src="lib/mocha/mocha.js"></script>
   <script src="lib/chai/chai.js"></script>
   <script src="lib/sinon/sinon.js"></script>
@@ -13,6 +16,15 @@
     $(function() {
       window.mochaPhantomJS ? mochaPhantomJS.run() : mocha.run();
     });
+  </script>
+
+  <script id='msgTemplate' type='text/x-handlebars-template'>
+      <li class="message">
+        <a href='#' class='username'>{{username}}</a>
+          <span class='timestamp'>Posted <time class='timeago' datetime='{{updatedAt}}'></time> from:</span>
+          <span class='room'>{{roomname}}</span><br />
+          <span class='content'>{{text}}</span>
+      </li>
   </script>
 
   <!-- Spec files -->
@@ -33,6 +45,10 @@
       Room:
       <select id="roomSelect">
       </select>
+      <br />
+      Message:
+      <input id="message"></input>
+      <button class="submit" id="send">Submit</button>
     </div>
     <form action="#" id="send" method="post">
       <input type="text" name="message" id="message"/>

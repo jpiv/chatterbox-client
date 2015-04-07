@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="styles/styles.css">
     <script id='msgTemplate' type='text/x-handlebars-template'>
       <li class="message">
-        <span class='user'>{{username}}</span>
+        <a href='#' class='username'>{{username}}</a>
           <span class='timestamp'>Posted <time class='timeago' datetime='{{updatedAt}}'></time> from:</span>
           <span class='room'>{{roomname}}</span><br />
           <span class='content'>{{text}}</span>
@@ -20,13 +20,20 @@
     <script src="bower_components/timeago/jquery.timeago.js"></script>
     <!-- your scripts -->
     <script src="env/config.js"></script>
-    <script src="scripts/app.js"></script>
+    <script class="appScript" src="scripts/app.js"></script>
   </head>
   <body>
     <div id="main">
       <h1>chatterbox</h1>
+      <select id="roomSelect"></select>
+      <br />
+      <div id="send">
+        Message:
+        <input id="message"></input>
+        <button class="submit">Submit</button></div>
+      </div>
       <!-- Your HTML goes here! -->
-      <ul class="messages">
+      <ul id="chats">
       </ul>
     </div>
   </body>
